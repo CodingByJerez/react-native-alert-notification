@@ -3,25 +3,24 @@
 
 ## Example Dialog Box
 
-|                          Theme Light                          |                          Theme Dark                           |
-| :-----------------------------------------------------------: | :-----------------------------------------------------------: |
-| ||
-
-|                          Example One                          |                          Example Two                          |                         Example Three                         |
-| :-----------------------------------------------------------: | :-----------------------------------------------------------: | :-----------------------------------------------------------: |
-|  |  |  |
+ <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-success-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-success-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
+ <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-warning-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-warning-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
+ <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-danger-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-danger-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
+ <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-success-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-success-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
+ <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-warning-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-warning-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
+ <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-danger-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-danger-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
 
 
 
 ## Installation
-###- Installing dependencies:
+### - Installing dependencies:
 - For Native project:
 ```sh
 yarn add react-native-safe-area-context
 pod install
 ```
 
-###- Installing:
+### - Installing:
 ```sh
 yarn add react-native-safe-area-context
 ```
