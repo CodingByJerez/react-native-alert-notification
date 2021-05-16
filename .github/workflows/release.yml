@@ -50,7 +50,7 @@ jobs:
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          yarn config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
 
       - name: Release
         env:
