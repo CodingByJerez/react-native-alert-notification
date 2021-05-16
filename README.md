@@ -3,12 +3,17 @@
 
 ## Example Dialog Box
 
- <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-success-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-success-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
- <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-warning-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-warning-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
- <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-danger-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-danger-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
- <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-success-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-success-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
- <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-warning-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-warning-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
- <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-danger-light.png?raw=true" height="350" alt="Dialog Danger light" /> <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-danger-dark.png?raw=true" height="350" alt="Dialog Danger Dark" />
+|                          Theme Light                          |                          Theme Dark                           |
+| :-----------------------------------------------------------: | :-----------------------------------------------------------: |
+|  <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-light.gif?raw=true" height="350" alt="Dialogs light" /> | <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/dialog-dark.gif?raw=true" height="350" alt="Dialogs Dark" /> |
+
+
+
+## Example Toast Notification
+|                          Theme Light                          |                          Theme Dark                           |
+| :-----------------------------------------------------------: | :-----------------------------------------------------------: |
+|  <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-light.gif?raw=true" height="350" alt="toasts light" /> | <img src="https://github.com/CodingByJerez/react-native-alert-notification/blob/master/.github/images/toast-dark.gif?raw=true" height="350" alt="toasts Dark" /> |
+
 
 
 
