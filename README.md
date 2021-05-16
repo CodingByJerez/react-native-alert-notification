@@ -22,7 +22,7 @@ pod install
 
 ### - Installing:
 ```sh
-yarn add react-native-safe-area-context
+yarn add react-native-alert-notification
 ```
 
 ## Usage
