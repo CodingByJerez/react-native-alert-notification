@@ -158,6 +158,15 @@ type IConfig = {
 };
 ```
 
+### For Close popup
+```ts
+// For Dialog Box
+Dialog.hide();
+
+// For Toast Notification
+Toast.hide();
+```
+
 ## Author
 
 Rodolphe Jerez | [https://codingbyjerez.com](https://codingbyjerez.com)
