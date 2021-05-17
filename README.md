@@ -72,9 +72,9 @@ A React node that will be most likely wrapping your whole app.
 | Name                | Description                                           | Require  | Default  | Type                                                 |
 | ------------------- | ----------------------------------------------------- | -------- | -------- | ---------------------------------------------------- |
 | theme               | select theme light dark  (by default is auto)         |          | auto     | 'light','dark'                                       |
-| colors              | Defines the type ("Success", "Warning" or "Error")    |          |          | [IColors<light>, IColors<dark>]                      |
-| dialogConfig        | The text body                                         |          |          | {closeOnOverlayTap:bool, autoClose:bool / number}    |
-| toastConfig         | name button (for hide button: undefined)              |          |          | {autoClose:bool / number}                            |
+| colors              | custom colors                                         |          |          | [IColors<light>, IColors<dark>]                      |
+| dialogConfig        | config dialog box global                              |          |          | {closeOnOverlayTap:bool, autoClose:bool / number}    |
+| toastConfig         | config toast global                                   |          |          | {autoClose:bool / number}                            |
 
 ```ts
 type IProps = {
