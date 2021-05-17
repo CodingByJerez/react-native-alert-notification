@@ -18,17 +18,26 @@
 
 
 ## Installation
-### - Installing dependencies:
-- For Native project:
-```sh
-yarn add react-native-safe-area-context
-pod install
-```
 
 ### - Installing:
 ```sh
 yarn add react-native-alert-notification
 ```
+
+
+### - Installing dependencies:
+
+- For Native project:
+```sh
+yarn add react-native-safe-area-context
+
+pod install
+```
+- For Expo project:
+```sh
+expo install react-native-safe-area-context
+```
+
 
 ## Usage
 
