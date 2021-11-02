@@ -1,6 +1,6 @@
 import React from 'react';
-import { ALERT_TYPE, Dialog, Root, Toast } from 'react-native-alert-notification';
 import { Alert, Button, SafeAreaView, SectionList, StyleSheet, Text } from 'react-native';
+import { ALERT_TYPE, Dialog, Root, Toast } from 'react-native-alert-notification';
 
 const _textBody = (page: string) => `congratulations you can observe the ${page} notification :)`;
 

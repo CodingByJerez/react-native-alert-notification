@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useColorScheme, View } from 'react-native';
-import { Dialog, Toast, IConfigDialog, IConfigToast } from '../index';
-import { SafeAreaProvider, SafeAreaInsetsContext } from 'react-native-safe-area-context';
 import { useContext } from 'react';
+import { useColorScheme, View } from 'react-native';
+import { SafeAreaInsetsContext, SafeAreaProvider } from 'react-native-safe-area-context';
+import { Dialog, IConfigDialog, IConfigToast, Toast } from '../index';
 import { Color, IColors } from '../service';
 
 type IProps = {
@@ -24,9 +24,9 @@ const Root: React.FunctionComponent<IProps> = ({ theme, colors, children, dialog
       <SafeAreaProvider>
         {/* eslint-disable-next-line react-native/no-inline-styles */}
         <View style={{ flex: 1 }}>
-          {children}
           <Dialog ref={Dialog.instance} isDark={isDark} config={dialogConfig} />
           <Toast ref={Toast.instance} isDark={isDark} config={toastConfig} />
+          {children}
         </View>
       </SafeAreaProvider>
     );
@@ -35,9 +35,9 @@ const Root: React.FunctionComponent<IProps> = ({ theme, colors, children, dialog
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <View style={{ flex: 1 }}>
-      {children}
       <Dialog ref={Dialog.instance} isDark={isDark} config={dialogConfig} />
       <Toast ref={Toast.instance} isDark={isDark} config={toastConfig} />
+      {children}
     </View>
   );
 };
