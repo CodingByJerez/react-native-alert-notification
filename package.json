@@ -1,6 +1,6 @@
 {
   "name": "react-native-alert-notification",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "license": "MIT",
   "description": "Toast notification and dialog box notification for react native",
   "main": "lib/commonjs/index",
