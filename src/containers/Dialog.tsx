@@ -5,8 +5,8 @@ import { Color, getImage } from '../service';
 
 export type IConfig = {
   type: ALERT_TYPE;
-  title: string;
-  textBody: string;
+  title?: string;
+  textBody?: string;
   button?: string;
   autoClose?: number | boolean;
   closeOnOverlayTap?: boolean;
@@ -225,8 +225,8 @@ class Dialog extends React.Component<IProps, IState> {
         <View style={styles.backendImage} />
         <Image source={getImage(type)} resizeMode="contain" style={StyleSheet.flatten([styles.image, styles[`${type}Image`]])} />
         <View style={styles.cardBody}>
-          <Text style={styles.titleLabel}>{title}</Text>
-          <Text style={styles.descLabel}>{textBody}</Text>
+          {title && <Text style={styles.titleLabel}>{title}</Text>}
+          {textBody && <Text style={styles.descLabel}>{textBody}</Text>}
         </View>
         <View style={styles.cardFooter}>
           <_buttonRender />

@@ -1,15 +1,15 @@
 import * as React from 'react';
-import ENV, { ACTION, ALERT_TYPE } from '../config/ENV';
 import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
-import Color from '../service/color';
+import ENV, { ACTION, ALERT_TYPE } from '../config/ENV';
 import { getImage } from '../service';
+import Color from '../service/color';
 
 export type IConfig = {
   type?: ALERT_TYPE;
   // position?: TOAST_POSITION;
   title?: string;
-  textBody: string;
+  textBody?: string;
   autoClose?: number | boolean;
   onPress?: () => void;
   onLongPress?: () => void;
@@ -178,7 +178,7 @@ class Toast extends React.Component<IProps, IState> {
             {/* eslint-disable-next-line react-native/no-inline-styles */}
             <View style={{ overflow: 'hidden', flex: 1 }}>
               {title && <Text style={styles.titleLabel}>{title}</Text>}
-              <Text style={styles.descLabel}>{textBody}</Text>
+              {textBody && <Text style={styles.descLabel}>{textBody}</Text>}
             </View>
           </Pressable>
         </Animated.View>
