@@ -8,7 +8,7 @@ import { getImage } from '../service';
 export type IConfig = {
   type?: ALERT_TYPE;
   // position?: TOAST_POSITION;
-  title: string;
+  title?: string;
   textBody: string;
   autoClose?: number | boolean;
   onPress?: () => void;
@@ -177,7 +177,7 @@ class Toast extends React.Component<IProps, IState> {
             )}
             {/* eslint-disable-next-line react-native/no-inline-styles */}
             <View style={{ overflow: 'hidden', flex: 1 }}>
-              <Text style={styles.titleLabel}>{title}</Text>
+              {title && <Text style={styles.titleLabel}>{title}</Text>}
               <Text style={styles.descLabel}>{textBody}</Text>
             </View>
           </Pressable>
