@@ -240,7 +240,7 @@ const __styles = (isDark: boolean) =>
     },
     descLabel: {
       color: Color.get('label', isDark),
-      fontSize: 16
+      fontSize: 16,
     },
     backendImage: {
       position: 'absolute',
