@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, ReactElement } from 'react';
 import { useColorScheme, View } from 'react-native';
 import { SafeAreaInsetsContext, SafeAreaProvider } from 'react-native-safe-area-context';
 import { Dialog, IConfigDialog, IConfigToast, Toast } from '../index';
@@ -10,7 +10,7 @@ type IProps = {
   toastConfig?: Pick<IConfigToast, 'autoClose'>;
   theme?: 'light' | 'dark';
   colors?: [IColors, IColors] /** ['light_colors' , 'dark_colors'] */;
-  children?: any;
+  children: ReactElement | ReactElement[];
 };
 
 const Root: React.FunctionComponent<IProps> = ({ theme, colors, children, dialogConfig, toastConfig }) => {
