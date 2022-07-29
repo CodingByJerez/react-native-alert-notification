@@ -38,7 +38,7 @@ expo install react-native-safe-area-context
 
 ## Usage
 
-```js
+```tsx
 import { ALERT_TYPE, Dialog, Root, Toast } from 'react-native-alert-notification';
 
 <Root>
@@ -76,17 +76,17 @@ import { ALERT_TYPE, Dialog, Root, Toast } from 'react-native-alert-notification
 
 A React node that will be most likely wrapping your whole app.
 
-| Name         | Description                                  | Require | Default | Type                                              |
-| ------------ | -------------------------------------------- | ------- | ------- | ------------------------------------------------- |
-| theme        | select theme light dark (by default is auto) |         | auto    | 'light','dark'                                    |
-| colors       | custom colors                                |         |         | [IColors<light>, IColors<dark>]                   |
-| dialogConfig | config dialog box global                     |         |         | {closeOnOverlayTap:bool, autoClose:bool / number} |
-| toastConfig  | config toast global                          |         |         | {autoClose:bool / number}                         |
+| Name         | Description                                  | Require | Default | Type                                                                                                |
+| ------------ | -------------------------------------------- | ------- | ------- | --------------------------------------------------------------------------------------------------- |
+| theme        | select theme light dark (by default is auto) |         | auto    | 'light','dark'                                                                                      |
+| colors       | custom colors                                |         |         | [IColors<light>, IColors<dark>]                                                                     |
+| dialogConfig | config dialog box global                     |         |         | {closeOnOverlayTap:bool, autoClose:bool / number}                                                   |
+| toastConfig  | config toast global                          |         |         | {autoClose:bool / number, titleStyle?: StyleProp<TextStyle> , textBodyStyle?: StyleProp<TextStyle>} |
 
 ```ts
 type IProps = {
   dialogConfig?: Pick<IConfigDialog, 'closeOnOverlayTap' | 'autoClose'>;
-  toastConfig?: Pick<IConfigToast, 'autoClose'>;
+  toastConfig?: Pick<IConfigToast, 'autoClose' | 'titleStyle' | 'textBodyStyle'>;
   theme?: 'light' | 'dark';
   colors?: [IColors, IColors] /** ['light_colors' , 'dark_colors'] */;
 };
@@ -147,6 +147,8 @@ type IConfig = {
   title?: string;
   textBody?: string;
   autoClose?: number | boolean;
+  titleStyle?: StyleProp<TextStyle>;
+  textBodyStyle?: StyleProp<TextStyle>;
   onPress?: () => void;
   onLongPress?: () => void;
   onShow?: () => void;

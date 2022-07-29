@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Image, Pressable, StyleProp, StyleSheet, Text, TextStyle, View } from 'react-native';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 import ENV, { ACTION, ALERT_TYPE } from '../config/ENV';
 import { getImage } from '../service';
@@ -10,6 +10,8 @@ export type IConfig = {
   // position?: TOAST_POSITION;
   title?: string;
   textBody?: string;
+  titleStyle?: StyleProp<TextStyle>;
+  textBodyStyle?: StyleProp<TextStyle>;
   autoClose?: number | boolean;
   onPress?: () => void;
   onLongPress?: () => void;
@@ -19,7 +21,7 @@ export type IConfig = {
 
 type IProps = {
   isDark: boolean;
-  config?: Pick<IConfig, 'autoClose'>;
+  config?: Pick<IConfig, 'autoClose' | 'titleStyle' | 'textBodyStyle'>;
 };
 
 type IState = {
@@ -57,7 +59,8 @@ class Toast extends React.Component<IProps, IState> {
   /**
    * @type {React.ContextType<typeof SafeAreaInsetsContext>}
    */
-  public context!: React.ContextType<typeof SafeAreaInsetsContext>;
+  //@ts-ignore
+  public context: React.ContextType<typeof SafeAreaInsetsContext>;
 
   /**
    * @type {Animated.Value}
@@ -157,8 +160,13 @@ class Toast extends React.Component<IProps, IState> {
    */
   private _CardRender = (): JSX.Element => {
     const { styles } = this.state;
+    const { config } = this.props;
+
     if (this.state.config) {
-      const { type, title, textBody, onPress, onLongPress } = this.state.config;
+      const { type, title, textBody, onPress, onLongPress, titleStyle: titleCustomStyle, textBodyStyle: textBodyCustomStyle } = this.state.config;
+
+      const titleStyle = titleCustomStyle || config?.titleStyle;
+      const textBodyStyle = textBodyCustomStyle || config?.textBodyStyle;
       return (
         <Animated.View
           onLayout={({
@@ -177,8 +185,8 @@ class Toast extends React.Component<IProps, IState> {
             )}
             {/* eslint-disable-next-line react-native/no-inline-styles */}
             <View style={{ overflow: 'hidden', flex: 1 }}>
-              {title && <Text style={styles.titleLabel}>{title}</Text>}
-              {textBody && <Text style={styles.descLabel}>{textBody}</Text>}
+              {title && <Text style={StyleSheet.flatten([styles.titleLabel, titleStyle])}>{title}</Text>}
+              {textBody && <Text style={StyleSheet.flatten([styles.descLabel, textBodyStyle])}>{textBody}</Text>}
             </View>
           </Pressable>
         </Animated.View>
