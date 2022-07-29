@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ReactElement, useContext } from 'react';
-import { useColorScheme, View } from 'react-native';
+import RN, { View } from 'react-native';
 import { SafeAreaInsetsContext, SafeAreaProvider } from 'react-native-safe-area-context';
 import { Dialog, IConfigDialog, IConfigToast, Toast } from '../index';
 import { Color, IColors } from '../service';
@@ -14,7 +14,7 @@ type IProps = {
 };
 
 const Root: React.FunctionComponent<IProps> = ({ theme, colors, children, dialogConfig, toastConfig }) => {
-  const colorScheme = useColorScheme();
+  const colorScheme = RN.useColorScheme?.();
   const safeAreaInsetsContext = useContext(SafeAreaInsetsContext);
   Color.colorsCustom = colors;
 
