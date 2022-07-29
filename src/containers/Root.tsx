@@ -10,6 +10,7 @@ type IProps = {
   toastConfig?: Pick<IConfigToast, 'autoClose'>;
   theme?: 'light' | 'dark';
   colors?: [IColors, IColors] /** ['light_colors' , 'dark_colors'] */;
+  children?:any;
 };
 
 const Root: React.FunctionComponent<IProps> = ({ theme, colors, children, dialogConfig, toastConfig }) => {
