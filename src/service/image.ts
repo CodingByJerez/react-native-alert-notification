@@ -1,8 +1,8 @@
-import { ImageRequireSource } from 'react-native';
+import type { ImageRequireSource } from 'react-native';
 import { ALERT_TYPE } from '../config/ENV';
-import { IConfig } from '../containers/Dialog';
+import type { IConfigDialog } from '../containers/Dialog';
 
-const getImage = (type: IConfig['type']): ImageRequireSource => {
+export const getImage = (type: IConfigDialog['type']): ImageRequireSource => {
   switch (type) {
     case ALERT_TYPE.SUCCESS:
       return require('../assets/success.png');
@@ -12,5 +12,3 @@ const getImage = (type: IConfig['type']): ImageRequireSource => {
       return require('../assets/danger.png');
   }
 };
-
-export default getImage;

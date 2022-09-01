@@ -60,5 +60,4 @@ const ENV = {
   },
 };
 
-export { ALERT_TYPE, TOAST_POSITION, ACTION };
-export default ENV;
+export { ENV, ALERT_TYPE, TOAST_POSITION, ACTION };

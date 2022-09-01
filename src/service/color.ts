@@ -1,5 +1,5 @@
 import ReactNative, { Platform } from 'react-native';
-import ENV from '../config/ENV';
+import { ENV } from '../config';
 
 type IGet = (key: keyof IColors, isDark: boolean) => string | undefined | ReactNative.OpaqueColorValue;
 export type IColors = {
@@ -11,7 +11,7 @@ export type IColors = {
   warning: string;
 };
 
-class Color {
+export class Color {
   public static colorsCustom?: [IColors] | [IColors, IColors];
 
   public static get: IGet = (key, isDark) => {
@@ -30,5 +30,3 @@ class Color {
     return i_a ?? color.default[index];
   };
 }
-
-export default Color;

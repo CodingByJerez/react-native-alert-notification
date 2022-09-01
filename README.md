@@ -39,9 +39,9 @@ expo install react-native-safe-area-context
 ## Usage
 
 ```tsx
-import { ALERT_TYPE, Dialog, Root, Toast } from 'react-native-alert-notification';
+import { ALERT_TYPE, Dialog, AlertNotificationRoot, Toast } from 'react-native-alert-notification';
 
-<Root>
+<AlertNotificationRoot>
   <View>
     // dialog box
     <Button
@@ -67,7 +67,7 @@ import { ALERT_TYPE, Dialog, Root, Toast } from 'react-native-alert-notification
       }
     />
   </View>
-</Root>;
+</AlertNotificationRoot>;
 ```
 
 ## Documentation:
@@ -130,16 +130,15 @@ type IConfig = {
 
 ### Toast Notification Component
 
-| Name        | Description                                        | Require | Default | Type                           |
-| ----------- | -------------------------------------------------- | ------- | ------- | ------------------------------ |
-| title       | The title text                                     |         |         | String                         |
-| type        | Defines the type ("Success", "Warning" or "Error") |         |         | "SUCCESS", "DANGER", "WARNING" |
-| textBody    | The text body                                      |         |         | String                         |
-| autoClose   | Defines time auto close dialog box in ms           |         | 5000    | bool / number                  |
-| onPress     | action click in card                               |         |         | bool                           |
-| onLongPress | action long click in card                          |         |         | () => void                     |
-| onShow      | event after end animation open                     |         |         | () => void                     |
-| onHide      | event after end animation close                    |         |         | () => void                     |
+| Name      | Description                                        | Require | Default | Type                           |
+| --------- | -------------------------------------------------- | ------- | ------- | ------------------------------ |
+| title     | The title text                                     |         |         | String                         |
+| type      | Defines the type ("Success", "Warning" or "Error") |         |         | "SUCCESS", "DANGER", "WARNING" |
+| textBody  | The text body                                      |         |         | String                         |
+| autoClose | Defines time auto close dialog box in ms           |         | 5000    | bool / number                  |
+| onPress   | action click in card                               |         |         | bool                           |
+| onShow    | event after end animation open                     |         |         | () => void                     |
+| onHide    | event after end animation close                    |         |         | () => void                     |
 
 ```ts
 type IConfig = {
@@ -150,7 +149,6 @@ type IConfig = {
   titleStyle?: StyleProp<TextStyle>;
   textBodyStyle?: StyleProp<TextStyle>;
   onPress?: () => void;
-  onLongPress?: () => void;
   onShow?: () => void;
   onHide?: () => void;
 };

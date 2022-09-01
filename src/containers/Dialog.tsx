@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Animated, Image, Modal, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import ENV, { ACTION, ALERT_TYPE } from '../config/ENV';
+import { Animated, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ACTION, ALERT_TYPE, ENV } from '../config';
 import { Color, getImage } from '../service';
 
-export type IConfig = {
+export type IConfigDialog = {
   type: ALERT_TYPE;
   title?: string;
   textBody?: string;
@@ -17,17 +17,17 @@ export type IConfig = {
 
 type IProps = {
   isDark: boolean;
-  config?: Pick<IConfig, 'closeOnOverlayTap' | 'autoClose'>;
+  config?: Pick<IConfigDialog, 'closeOnOverlayTap' | 'autoClose'>;
 };
 
 type IState = {
   styles: ReturnType<typeof __styles>;
   overlayClose?: boolean;
   visible: boolean;
-  config?: IConfig;
+  config?: IConfigDialog;
 };
 
-class Dialog extends React.Component<IProps, IState> {
+export class Dialog extends React.Component<IProps, IState> {
   /**
    * @type {React.RefObject<Dialog>}
    */
@@ -36,7 +36,7 @@ class Dialog extends React.Component<IProps, IState> {
   /**
    * @param {IConfig} args
    */
-  public static show = (args: IConfig): void => {
+  public static show = (args: IConfigDialog): void => {
     Dialog.instance.current?._open(args);
   };
 
@@ -95,7 +95,7 @@ class Dialog extends React.Component<IProps, IState> {
   /**
    * @param {IConfig} config
    */
-  private _open = async (config: IConfig): Promise<void> => {
+  private _open = async (config: IConfigDialog): Promise<void> => {
     if (this.state.visible) {
       if (this._timeout) {
         clearTimeout(this._timeout);
@@ -181,7 +181,7 @@ class Dialog extends React.Component<IProps, IState> {
     const { type, onPressButton, button } = this.state.config!;
     if (button) {
       return (
-        <TouchableOpacity style={[styles.button, styles[type]]} onPress={onPressButton ?? this._close}>
+        <TouchableOpacity style={StyleSheet.flatten([styles.button, styles[type]])} onPress={onPressButton ?? this._close}>
           <Text style={styles.buttonLabel}>{button}</Text>
         </TouchableOpacity>
       );
@@ -195,7 +195,7 @@ class Dialog extends React.Component<IProps, IState> {
   private _OverlayCloseRender = (): JSX.Element => {
     if (this.state.config?.closeOnOverlayTap === false ? false : this.props.config?.closeOnOverlayTap !== false) {
       // eslint-disable-next-line react-native/no-inline-styles
-      return <Pressable onPressIn={this._close} style={{ flex: 1 }} />;
+      return <TouchableOpacity onPressIn={this._close} style={{ flex: 1 }} />;
     }
     return <></>;
   };
@@ -338,5 +338,3 @@ const __styles = (isDark: boolean) =>
       tintColor: Color.get('warning', isDark),
     },
   });
-
-export default Dialog;
