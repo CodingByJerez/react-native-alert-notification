@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Animated, Image, LayoutChangeEvent, PanResponder, Platform, StyleSheet, Text, View, TouchableOpacity, StyleProp, TextStyle } from 'react-native';
+import { Animated, Image, LayoutChangeEvent, PanResponder, Platform, StyleSheet, Text, View, StyleProp, TextStyle } from 'react-native';
 import { Color, getImage } from '../service';
 import { ALERT_TYPE } from '../config';
 
@@ -26,11 +26,13 @@ interface IState {
 export class ToastRender extends React.Component<IProps, IState> {
   private _heightContainer: number;
   private _positionToast: Animated.Value;
+  private _pressStartY: null | number;
   private _countdown: null | Function;
 
   constructor(props: IProps) {
     super(props);
     this._heightContainer = 0;
+    this._pressStartY = null;
     this._positionToast = new Animated.Value(0);
     this._countdown = null;
     this.state = {
@@ -92,12 +94,18 @@ export class ToastRender extends React.Component<IProps, IState> {
       }
     },
     onPanResponderTerminationRequest: () => true,
-    onPanResponderStart: () => {
+    onPanResponderStart: (_, { dy }) => {
+      this._pressStartY = dy;
       this._countdown?.();
     },
     onPanResponderEnd: async (_, { dy }) => {
       let heightContainer = this._heightContainer;
-      if (dy < -(heightContainer / 3)) {
+      const startY = this._pressStartY!;
+      this._pressStartY = null;
+      if (Math.abs(dy - startY) < 7) {
+        this.props?.onPress?.();
+        this._autoCloseHandler();
+      } else if (dy < -(heightContainer / 3)) {
         this._animatedTiming(-heightContainer).start(this.props.onClose);
       } else {
         this._animatedTiming(0).start(this._autoCloseHandler);
@@ -106,13 +114,13 @@ export class ToastRender extends React.Component<IProps, IState> {
   });
 
   private _ModelRender = () => {
-    const { type, title, description, onPress, titleStyle, textBodyStyle } = this.props;
+    const { type, title, description, titleStyle, textBodyStyle } = this.props;
     const { styles } = this.state;
     // if (model) {
     //   return model({ isDark, type, title, description });
     // }
     return (
-      <TouchableOpacity activeOpacity={1} style={styles.cardContainer} onPress={onPress}>
+      <View style={styles.cardContainer}>
         {type && (
           <React.Fragment>
             <View style={styles.backendImage} />
@@ -123,7 +131,7 @@ export class ToastRender extends React.Component<IProps, IState> {
           {title && <Text style={StyleSheet.flatten([styles.titleLabel, titleStyle])}>{title}</Text>}
           {description && <Text style={StyleSheet.flatten([styles.descLabel, textBodyStyle])}>{description}</Text>}
         </View>
-      </TouchableOpacity>
+      </View>
     );
   };
 
