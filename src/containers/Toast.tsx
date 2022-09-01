@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { StyleProp, TextStyle } from 'react-native';
+import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 import { ALERT_TYPE } from '../config';
 import { ToastRender } from './ToastRender';
 
@@ -87,6 +88,10 @@ export class Toast extends React.Component<IProps, IState> {
       return null;
     }
     const { isDark, config: configGeneral } = this.props;
-    return <ToastRender {...data} isDark={isDark} configGeneral={configGeneral} onClose={this._closedHandler} />;
+    return (
+      <SafeAreaInsetsContext.Consumer>
+        {(insets) => <ToastRender {...data} isDark={isDark} paddingTop={insets?.top} configGeneral={configGeneral} onClose={this._closedHandler} />}
+      </SafeAreaInsetsContext.Consumer>
+    );
   }
 }

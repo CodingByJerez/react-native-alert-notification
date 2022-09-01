@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Animated, Image, LayoutChangeEvent, PanResponder, Platform, StyleSheet, Text, View, TouchableOpacity, StyleProp, TextStyle } from 'react-native';
-import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 import { Color, getImage } from '../service';
 import { ALERT_TYPE } from '../config';
 
 interface IProps {
   isDark: boolean;
+  paddingTop?: number;
   type?: ALERT_TYPE;
   title?: string;
   description?: string;
@@ -24,9 +24,6 @@ interface IState {
 }
 
 export class ToastRender extends React.Component<IProps, IState> {
-  static contextType = SafeAreaInsetsContext;
-  declare context: React.ContextType<typeof SafeAreaInsetsContext>;
-
   private _heightContainer: number;
   private _positionToast: Animated.Value;
   private _countdown: null | Function;
@@ -131,7 +128,7 @@ export class ToastRender extends React.Component<IProps, IState> {
   };
 
   public render() {
-    const paddingTop = this.context?.top || 0;
+    const paddingTop = this.props.paddingTop || 0;
     const { isInit, styles } = this.state;
     const { _ModelRender } = this;
     return (
