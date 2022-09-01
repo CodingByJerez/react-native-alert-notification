@@ -26,13 +26,13 @@ interface IState {
 export class ToastRender extends React.Component<IProps, IState> {
   private _heightContainer: number;
   private _positionToast: Animated.Value;
-  private _pressStartY: null | number;
+  private _pressStart: null | { startY: number; startAt: number };
   private _countdown: null | Function;
 
   constructor(props: IProps) {
     super(props);
     this._heightContainer = 0;
-    this._pressStartY = null;
+    this._pressStart = null;
     this._positionToast = new Animated.Value(0);
     this._countdown = null;
     this.state = {
@@ -94,15 +94,15 @@ export class ToastRender extends React.Component<IProps, IState> {
       }
     },
     onPanResponderTerminationRequest: () => true,
-    onPanResponderStart: (_, { dy }) => {
-      this._pressStartY = dy;
+    onPanResponderStart: (_, { dy: startY }) => {
+      this._pressStart = { startY, startAt: Date.now() };
       this._countdown?.();
     },
     onPanResponderEnd: async (_, { dy }) => {
       let heightContainer = this._heightContainer;
-      const startY = this._pressStartY!;
-      this._pressStartY = null;
-      if (Math.abs(dy - startY) < 7) {
+      const { startY, startAt } = this._pressStart!;
+      this._pressStart = null;
+      if (startAt + 500 >= Date.now() && Math.abs(dy - startY) < 7) {
         this.props?.onPress?.();
         this._autoCloseHandler();
       } else if (dy < -(heightContainer / 3)) {
