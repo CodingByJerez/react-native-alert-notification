@@ -2,7 +2,9 @@ import * as React from 'react';
 import { ReactElement, useContext } from 'react';
 import RN, { View } from 'react-native';
 import { SafeAreaInsetsContext, SafeAreaProvider } from 'react-native-safe-area-context';
-import { Dialog, IConfigDialog, IConfigToast, Toast } from './';
+import { IConfigToast, Toast } from './Toast';
+import { Dialog, IConfigDialog} from './Dialog';
+
 import { Color, IColors } from '../service';
 import { StyleSheet } from 'react-native';
 
