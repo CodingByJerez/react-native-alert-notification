@@ -310,6 +310,9 @@ const __styles = (isDark: boolean) =>
     [ALERT_TYPE.WARNING]: {
       backgroundColor: Color.get('warning', isDark),
     },
+    [ALERT_TYPE.INFO]: {
+      backgroundColor: Color.get('info', isDark),
+    },
     backendImage: {
       position: 'absolute',
       alignSelf: 'center',
@@ -336,5 +339,8 @@ const __styles = (isDark: boolean) =>
     },
     [`${ALERT_TYPE.WARNING}Image`]: {
       tintColor: Color.get('warning', isDark),
+    },
+    [`${ALERT_TYPE.INFO}Image`]: {
+      tintColor: Color.get('info', isDark),
     },
   });

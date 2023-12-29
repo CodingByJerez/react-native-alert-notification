@@ -13,6 +13,7 @@ enum ALERT_TYPE {
   SUCCESS = 'SUCCESS',
   DANGER = 'DANGER',
   WARNING = 'WARNING',
+  INFO = 'INFO',
 }
 
 enum TOAST_POSITION {
@@ -56,6 +57,11 @@ const ENV = {
       ios: 'systemOrange',
       android: ['@android:color/holo_orange_light', '@android:color/holo_orange_dark'],
       default: ['rgb(255,149,0)', 'rgb(255,159,10)'],
+    },
+    info: {
+      ios: 'systemBlue',
+      android: ['@android:color/holo_blue_light', '@android:color/holo_blue_dark'],
+      default: ['rgb(80,122,189)', 'rgb(80,122,190)'],
     },
   },
 };

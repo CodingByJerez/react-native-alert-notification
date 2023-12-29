@@ -9,6 +9,7 @@ export type IColors = {
   success: string;
   danger: string;
   warning: string;
+  info: string;
 };
 
 export class Color {
