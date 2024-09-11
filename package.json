@@ -1,6 +1,6 @@
 {
-  "name": "react-native-alert-notification",
-  "version": "0.4.0",
+  "name": "@sokunsamnang/react-native-alert-notification",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "Toast notification and dialog box notification for react native",
   "main": "lib/commonjs/index",
@@ -28,7 +28,7 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
     "commit": "git-cz",
-    "release": "release-it",
+    "release": "qrelease-it",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods"
@@ -45,15 +45,15 @@
     "dialog",
     "modal"
   ],
-  "author": "Rodolphe Jerez <contact@codingbyjerez.com> (github.com/codingbyjerez)",
+  "author": "Sam Allen <sokunsamnang45@gmail.com> (github.com/sokunsamnang)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CodingByJerez/react-native-alert-notification"
+    "url": "https://github.com/sokunsamnang/react-native-alert-notification"
   },
   "bugs": {
-    "url": "https://github.com/CodingByJerez/react-native-alert-notification/issues"
+    "url": "https://github.com/sokunsamnang/react-native-alert-notification/issues"
   },
-  "homepage": "https://github.com/CodingByJerez/react-native-alert-notification#readme",
+  "homepage": "https://github.com/sokunsamnang/react-native-alert-notification#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -169,5 +169,6 @@
         }
       ]
     ]
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

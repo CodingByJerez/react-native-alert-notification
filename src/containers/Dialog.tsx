@@ -8,9 +8,11 @@ export type IConfigDialog = {
   title?: string;
   textBody?: string;
   button?: string;
+  confirmButton?: string;
   autoClose?: number | boolean;
   closeOnOverlayTap?: boolean;
   onPressButton?: () => void;
+  onConfirmPressButton?: () => void;
   onShow?: () => void;
   onHide?: () => void;
 };
@@ -178,15 +180,22 @@ export class Dialog extends React.Component<IProps, IState> {
    */
   private _buttonRender = (): JSX.Element => {
     const { styles } = this.state;
-    const { type, onPressButton, button } = this.state.config!;
-    if (button) {
-      return (
-        <TouchableOpacity style={StyleSheet.flatten([styles.button, styles[type]])} onPress={onPressButton ?? this._close}>
-          <Text style={styles.buttonLabel}>{button}</Text>
-        </TouchableOpacity>
-      );
-    }
-    return <></>;
+    const { type, onPressButton, button, onConfirmPressButton, confirmButton } = this.state.config!;
+
+    return (
+      <View style={styles.containerButton}>
+        {button && (
+          <TouchableOpacity style={StyleSheet.flatten([styles.button, styles[type]])} onPress={onPressButton ?? this._close}>
+            <Text style={styles.buttonLabel}>{button}</Text>
+          </TouchableOpacity>
+        )}
+        {confirmButton && (
+          <TouchableOpacity style={StyleSheet.flatten([styles.button, styles[type]])} onPress={onConfirmPressButton ?? this._close}>
+            <Text style={styles.buttonLabel}>{confirmButton}</Text>
+          </TouchableOpacity>
+        )}
+      </View>
+    );
   };
 
   /**
@@ -286,6 +295,10 @@ const __styles = (isDark: boolean) =>
     descLabel: {
       textAlign: 'center',
       color: Color.get('label', isDark),
+    },
+    containerButton: {
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
     },
     button: {
       borderRadius: 50,

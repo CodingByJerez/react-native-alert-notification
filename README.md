@@ -1,5 +1,8 @@
 # react-native-alert-notification
 
+Forked from <a>[text](https://github.com/CodingByJerez/react-native-alert-notification)</a>
+CodingByJerez no longer maintenance
+
 ## Example Dialog Box
 
 |                                                                             Theme Light                                                                              |                                                                             Theme Dark                                                                             |

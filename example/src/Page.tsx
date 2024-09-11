@@ -48,6 +48,17 @@ const DATA = [
           }),
       },
       {
+        title: 'info',
+        onPress: () =>
+          Dialog.show({
+            type: ALERT_TYPE.INFO,
+            title: 'info',
+            button: 'no',
+            confirmButton: 'yes',
+            textBody: _textBody('info'),
+          }),
+      },
+      {
         title: 'no button',
         onPress: () =>
           Dialog.show({
