@@ -144,9 +144,11 @@ export class ToastRender extends React.Component<IProps, IState> {
         collapsable={false}
         onLayout={this._layoutHandler}
         {...this._panResponder.panHandlers}
-        style={StyleSheet.flatten([styles.container, { paddingTop, zIndex: isInit ? 99999 : -1, transform: [{ translateY: this._positionToast }] }])}
+        style={StyleSheet.flatten([styles.container, { paddingTop, transform: [{ translateY: this._positionToast }] }])}
       >
-        <_ModelRender />
+        <View style={{ zIndex: isInit ? 99999 : -1}}>
+          <_ModelRender />
+        </View>
       </Animated.View>
     );
   }
