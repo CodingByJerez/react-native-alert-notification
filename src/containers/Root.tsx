@@ -28,9 +28,9 @@ export const Root: React.FunctionComponent<IProps> = ({ theme, colors, children,
       <SafeAreaProvider>
         <View style={styles.content}>
           <React.Fragment>
+            {children}
             <Dialog ref={Dialog.instance} isDark={isDark} config={dialogConfig} />
             <Toast ref={Toast.instance} isDark={isDark} config={toastConfig} />
-            {children}
           </React.Fragment>
         </View>
       </SafeAreaProvider>
@@ -40,9 +40,9 @@ export const Root: React.FunctionComponent<IProps> = ({ theme, colors, children,
   return (
     <View style={styles.content}>
       <React.Fragment>
+        {children}
         <Dialog ref={Dialog.instance} isDark={isDark} config={dialogConfig} />
         <Toast ref={Toast.instance} isDark={isDark} config={toastConfig} />
-        {children}
       </React.Fragment>
     </View>
   );
