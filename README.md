@@ -25,7 +25,7 @@ yarn add react-native-alert-notification
 - For Native project:
 
 ```sh
-yarn add react-native-safe-area-context
+yarn add react-native-alert-notification
 
 pod install
 ```
@@ -33,7 +33,7 @@ pod install
 - For Expo project:
 
 ```sh
-expo install react-native-safe-area-context
+npx expo install react-native-alert-notification
 ```
 
 ## Usage
